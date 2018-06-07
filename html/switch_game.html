@@ -1,0 +1,21 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel3">切换游戏</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">switchGameAsync: 切换游戏</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="switch_game_app_id" placeholder="目标游戏的appId" value=""</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="switch_game_extra_data" placeholder='将传到目标游戏的额外数据(必须是json类型数据如:{"key":"value"})' value=""</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="switchGame.switchGameAsync('返回玩家能否订阅游戏消息助手')">测试</button>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->

@@ -1,0 +1,63 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel3">环境信息</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getContextID: 当前游戏环境的唯一标识</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.getContextID('当前游戏环境的唯一标识')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getContextType: 当前游戏环境的类型</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.getContextType('当前游戏环境的类型')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">isSizeBetween: 此函数用于确定加入当前游戏环境的玩家 数量是否在给定的最小值和最大值之间</li>
+                <li class="list-group-item">参数:<textarea class="form-control" id="isSizeBetweenData">{"minSize": 1,"maxSize": 5}</textarea>
+                </li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.isSizeBetween('此函数用于确定加入当前游戏环境的玩家 数量是否在给定的最小值和最大值之间')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">switchAsync: 请求切换到指定环境。如果玩家没有进入该环境的权限， 或玩家未向游戏提供进入 该环境的权限，请求将被拒绝</li>
+                <li class="list-group-item">参数:<input class="form-control" id="switchAsyncData" value="1234567890"></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.switchAsync('请求切换到指定环境。如果玩家没有进入该环境的权限， 或玩家未向游戏提供进入 该环境的权限，请求将被拒绝')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">chooseAsync: 为玩家打开一个环境选择对话框</li>
+                <li class="list-group-item">参数:<textarea class="form-control" id="chooseAsyncData">{"filters": ["NEW_PLAYERS_ONLY"],"minSize": 3}</textarea></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.chooseAsync('为玩家打开一个环境选择对话框')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">createAsync: 尝试在指定玩家和当前玩家之间创建环境或切换环境</li>
+                <li class="list-group-item">参数:<input class="form-control" id="createAsyncData" value="12345678"/></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.createAsync('尝试在指定玩家和当前玩家之间创建环境或切换环境')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getPlayersAsync: 获取#contextplayer 对象的数组， 其中包含与当前环境相关的活跃玩家（在过去 90 天内玩过游戏的用户）的信息</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="context.getPlayersAsync('获取 #contextplayer 对象的数组， 其中包含与当前环境相关的活跃玩家 （在过去 90 天内玩过游戏的用户）的信息')">测试</button>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->

@@ -1,0 +1,38 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel2">商品列表</h4>
+        </div>
+        <div class="modal-body">
+            <table class="table table-hover table-condensed" id="payment_table">
+                <thead>
+                    <tr>
+                        <th data-field="title" data-type="text">标题</th>
+                        <th data-field="productId" data-type="text">商品Id</th>
+                        <th data-field="description" data-type="text">描述</th>
+                        <th data-field="imageURI" data-type="img">图标</th>
+                        <th data-field="price" data-type="text">价格</th>
+                        <th data-field="priceCurrencyCode" data-type="text">币种</th>
+                        <th data-field="operate" data-type="button">操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+
+<style type="text/css">
+.modal-body{
+    overflow:scroll
+}
+
+.table th, .table td {  
+    text-align: center;  
+    vertical-align: middle!important;  
+} 
+</style>

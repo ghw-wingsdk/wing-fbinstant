@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><spring:message code="bind.title"/></title>
+    <!--手机必须要添加的  -->
+    <!--meta name="apple-touch-fullscreen" content="YES"  针对苹果 -->
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta id="i18n_pagename" content="message">
+    <!--手机必须要添加的  结束-->
+    <link href="./../css/pop.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="./../js/clipboard.min.js"></script>
+    <script type="text/javascript" src="./../js/user_bind.js"></script>
+    <script type="text/JavaScript" src="./../js/jquery.i18n.properties-min-1.0.9.js"></script>
+    <script type="text/JavaScript" src="./../js/language.js"></script>
+</head>
+<body>
+
+
+<!--弹窗蒙版-->
+<div class="pop_mask"></div>
+
+
+<!--找回角色游戏记录-->
+<div id="bind_token_main" class="pop_main" style="display: none;">
+    <a href="javascript:;" class="pop_close"></a>
+    <a id="lead_btn" href="javascript:;" class="pop-que"></a>
+    <div class="pop_content">
+        <div class="pop_explain">
+            <a class="i18n" data-properties="bind.explain" data-ptype="text"></a>
+        </div>
+        <div class="prop-key">Key:</div>
+        <div class="pop_token">
+            <input id="get_bind_token" type="text" value="" />
+            <a href="javascript:;" id="cp_token_btn" data-clipboard-target="#get_bind_token"><div class="i18n" data-properties="bind.copy" data-ptype="text"></div></a>
+            <span id="cp_token_msg" style="opacity: 0;"><div class="i18n" data-properties="bind.copy_success" data-ptype="text"></div></span>
+        </div>
+        <div class="pop_record pop-find-role">
+            <p><div class="i18n" data-properties="bind.input_title" data-ptype="text"></div></p>
+            <div class="input-cont clearfix">
+                <input id="input_bind_token" class="i18n" data-properties="bind.input_placeholder" data-ptype="placeholder" type="text" placeholder="" />
+                <img id="clear_btn" src="./../img/clear.png" alt="" class="clear-input" style="display: none">
+            </div>
+            <div id="error_div" style="opacity: 0;">
+                <img src="./../img/pop-warn.png" alt="">
+                <span id="error_msg" class="prop-warn-msg"><a class="i18n" data-properties="bind.input_error_msg1" data-ptype="text"></a></span>
+            </div>
+        </div>
+        <div class="pop_record_bind_btn pop-record-center pop-record-bind">
+            <a class="pop_record_bind_btn_d" href="javascript:;" id="bind_token"><div class="i18n" data-properties="bind.confirm_bind" data-ptype="text"></div></a>
+        </div>
+        <div class="bindone"><a class="i18n" data-properties="bind.bindone" data-ptype="text"></a></div>
+    </div>
+</div>
+
+
+<!--账号选择-->
+<div id="select_account_main" class="pop_main" style="display: none;">
+    <a href="javascript:;" class="pop_close"></a>
+    <div class="pop_content">
+        <p class="pop_account"><a class="i18n" data-properties="bind.select_account" data-ptype="text"></a></p>
+        <p class="pop_radio">
+            <input type="radio" checked="checked" name="account" id="radio1" value="1">
+            <label for="radio1" id="select_account_msg1">Instant Game Account<span style="display: none"><a class="i18n" data-properties="bind.new_account" data-ptype="text"></a></span></label>
+        </p>
+        <p class="pop_radio">
+            <input type="radio" name="account" id="radio2" value="0">
+            <label for="radio2" id="select_account_msg2">Chips Games Account<span style="display: none"><a class="i18n" data-properties="bind.new_account" data-ptype="text"></a></span></label>
+        </p>
+
+        <div class="pop_record pop-record-center pop-show-again">
+            <a href="javascript:;" id="select_account" class="pop-record-unbind"><div class="i18n" data-properties="bind.confirm" data-ptype="text"></div></a>
+            <input type="checkbox" checked="checked" id="showagain">
+            <label for="showagain" class="not-show-again"><span class="i18n" data-properties="bind.not_show_again" data-ptype="text"></span></label>
+        </div>
+    </div>
+</div>
+
+
+<!--解除绑定-->
+<div id="unbind_main" class="pop_main" style="display: none;">
+    <a href="javascript:;" class="pop_close"></a>
+    <div class="pop_content">
+        <p class="pop_account pop-account-unbind"><a class="i18n" data-properties="bind.unbind_explain" data-ptype="text"></a></p>
+        <p class="pop_radio">
+            <input type="radio"  name="unbind_account" id="unbind_account1">
+            <label id="unbind_account_msg1">Instant Game Account<span style="display: none"><a class="i18n" data-properties="bind.new_account" data-ptype="text"></a></span></label>
+        </p>
+        <p class="pop_radio">
+            <input type="radio" name="unbind_account" id="unbind_account1">
+            <label id="unbind_account_msg2">Chips Games Account<span style="display: none"><a class="i18n" data-properties="bind.new_account" data-ptype="text"></a></span></label>
+        </p>
+
+        <!--按钮-->
+        <div class="pop_record pop-record-center pop-record-footer">
+            <a href="javascript:showUnbindConfirm();" class="pop-record-unbind"><div class="i18n" data-properties="bind.unbind" data-ptype="text"></div></a>
+            <a href="javascript:changeAccount();"><div class="i18n" data-properties="bind.change" data-ptype="text"></div></a>
+        </div>
+    </div>
+</div>
+<!-- 确认切换 -->
+<div id="change_confirm_main" class="pop_main" style="display: none;">
+    <div class="pop_content">
+        <p class="switch-account"><a class="i18n" data-properties="bind.change_confirm_title" data-ptype="text"></a></p>
+        <p class="switch-account-msg">
+            <span><a class="i18n" data-properties="bind.change_confirm_msg" data-ptype="text"></a>"</span>
+            <span id="change_new" style="display: none">Instant Game Account</span>
+            <span id="change_old" style="display: none">Chips Games Account</span>"
+        </p>
+        <!--按钮-->
+        <div class="pop_record pop-record-center confirm-switch">
+            <a id="change" href="javascript:;" class="pop-record-unbind"><div class="i18n" data-properties="bind.confirm" data-ptype="text"></div></a>
+            <a href="javascript:;" id="change_confirm_close"><div class="i18n" data-properties="bind.return" data-ptype="text"></div></a>
+        </div>
+    </div>
+</div>
+
+<!-- 切换成功 -->
+<div id="change_success_main" class="pop_main" style="display: none;">
+    <div class="pop_content pop-content-switch">
+        <p class="switch-success-img">
+            <img src="./../img/pop-success.png" alt="" width="5rem">
+        </p>
+        <p class="switch-success-msg"><a class="i18n" data-properties="bind.change_success" data-ptype="text"></a></p>
+        <!--按钮-->
+        <div class="pop-refresh-game pop-record-center">
+            <a href="javascript:reloadSdk();" class="pop-record-unbind"><div class="i18n" data-properties="bind.refresh_the_game" data-ptype="text"></div></a>
+        </div>
+    </div>
+</div>
+
+<!-- 解绑成功 -->
+<div id="unbind_success_main" class="pop_main" style="display: none;">
+    <div class="pop_content pop-content-switch">
+        <p class="switch-success-img">
+            <img src="./../img/pop-success.png" alt="" width="5rem">
+        </p>
+        <p class="switch-success-msg"><a class="i18n" data-properties="bind.unbind_success" data-ptype="text"></a></p>
+        <!--按钮-->
+        <div class="pop-refresh-game pop-record-center">
+            <a href="javascript:reloadSdk();" class="pop-record-unbind"><div class="i18n" data-properties="bind.refresh_the_game" data-ptype="text"></div></a>
+        </div>
+    </div>
+</div>
+
+<!-- 角色找回成功 -->
+<div id="bind_token_success_main" class="pop_main" style="display: none;">
+    <div class="pop_content pop-content-switch">
+        <p class="switch-success-img">
+            <img src="./../img/pop-success.png" alt="" width="5rem">
+        </p>
+        <p class="switch-success-msg"><a class="i18n" data-properties="bind.bind_success" data-ptype="text"></a></p>
+        <!--按钮-->
+        <div class="pop-refresh-game pop-record-center">
+            <a href="javascript:" class="pop-record-unbind" id="bind_success_confirm"><div class="i18n" data-properties="bind.confirm" data-ptype="text"></div></a>
+        </div>
+    </div>
+</div>
+
+<!-- 确认解绑 -->
+<div id="unbind_confirm_main" class="pop_main" style="display: none;">
+    <div class="pop_content">
+        <p class="switch-account"><a class="i18n" data-properties="bind.unbind_confirm_title" data-ptype="text"></a></p>
+        <p class="switch-account-msg"><a class="i18n" data-properties="bind.unbind_confirm_msg" data-ptype="text"></a></p>
+        <!--按钮-->
+        <div class="pop_record pop-record-center confirm-switch">
+            <a id="unbind" href="javascript:;" class="pop-record-unbind"><div class="i18n" data-properties="bind.confirm" data-ptype="text"></div></a>
+            <a href="javascript:showUnbindReturn();"><div class="i18n" data-properties="bind.return" data-ptype="text"></div></a>
+        </div>
+    </div>
+</div>
+<div id="lead-page" class="lead-page" style="display: none;">
+    <img id="img_guide" src="./../img/lang/zh/guide1.png" alt="">
+</div>
+
+
+
+<script type="text/javascript">
+    //字体大小
+    // JavaScript Document
+    ////////////////////
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+//        alert(document.getElementsByTagName('html')[0].style.fontSize)
+        recalc();
+    })(document, window);
+    ////////////////////
+
+    // window.onload=function (){
+    //     execI18n();
+    // }
+    execI18n();
+</script>
+</body>
+</html>

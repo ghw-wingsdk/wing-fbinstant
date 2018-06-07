@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel3">排行榜</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getLeaderboardAsync: 获取排行榜</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="leaderboard_name" placeholder="FB后台配置的排行榜名称" value=""</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="leaderboard_score" placeholder="设置排行榜的分数,数据类型参考FB后台配置" value=""</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="leaderboard_extra_data" placeholder="额外数据" value=""</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="leaderboard.getLeaderboardAsync('获取排行榜')">测试</button>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->

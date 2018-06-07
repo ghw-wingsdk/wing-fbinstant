@@ -1,3 +1,26 @@
 .modal-body p {
     word-wrap: break-word;
 }
+
+/* .parent {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+.son  {
+    display: table-cell;
+    width: 40%;
+    vertical-align: middle;
+} */
+
+.list-inline {
+    /* display: table;
+    width: 100%;
+    text-align: center; */
+}
+
+.list-inline>li {
+    /* display: table-cell; */
+    width: 40%;
+    vertical-align: middle;
+}

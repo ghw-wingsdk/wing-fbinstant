@@ -1,0 +1,28 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel3">匹配玩家</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">checkCanPlayerMatchAsync: 检查当前玩家是否可以使用匹配玩家接口</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="match.checkCanPlayerMatchAsync('检查当前玩家是否可以使用匹配玩家接口')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">matchPlayerAsync: 匹配玩家，匹配成功后创建一个新的messager组，玩家转移到该小组中</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="match_tag" placeholder="用来匹配玩家的关键字" value=""></li>
+                <li class="list-group-item">参数:在匹配上玩家之后是否立即切换<input type="checkbox" id="switch_context_when_matched"></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="match.matchPlayerAsync('匹配玩家')">测试</button>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->

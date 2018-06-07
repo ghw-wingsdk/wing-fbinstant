@@ -1,0 +1,91 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel2">玩家信息</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getPlayerID: 获取玩家ID</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="util.showResult('获取玩家ID', wing.fbinstant.getPlayerID())">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getSignedPlayerInfoAsync: 获取玩家的唯一标识和签名</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.getSignedPlayerInfoAsync('获取玩家的唯一标识和签名')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getName: 经本地化显示的玩家姓名</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.getName('经本地化显示的玩家姓名')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getPhoto: 玩家公开头像的网址</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.getPhoto('玩家公开头像的网址')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">setDataAsync: 设置要保存到指定云存储的当前玩家的数据</li>
+                <li class="list-group-item">参数:<textarea class="form-control" id="setDataAsyncData">{"test1": ["hello"],"test2": "world"}</textarea></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.setDataAsync('设置要保存到指定云存储的当前玩家的数据')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getDataAsync: 从指定的云存储中检索当前玩家的数据</li>
+                <li class="list-group-item">参数:<input type="text" class="form-control" id="getDataAsyncData" value='["test1", "test2"]'></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.getDataAsync('从指定的云存储中检索当前玩家的数据')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">setStatsAsync: 设置要保存到指定云存储的当前玩家的统计数据</li>
+                <li class="list-group-item">参数:<textarea class="form-control" id="setStatsAsyncData">{"test250": 60,"test251":80}</textarea></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.setStatsAsync('设置要保存到指定云存储的当前玩家的统计数据')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">flushDataAsync: 立即将玩家数据的任何更改刷新到指定的云存储中</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.flushDataAsync('立即将玩家数据的任何更改刷新到指定的云存储中')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">incrementStatsAsync: 保存到指定云存储的当前玩家的增量统计数据</li>
+                <li class="list-group-item">参数:<textarea class="form-control" id="incrementStatsAsyncData">{"test250": 10,"test251":10}</textarea></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.incrementStatsAsync('保存到指定云存储的当前玩家的增量统计数据')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getStatsAsync: 从指定云存储检索当前玩家的统计数据</li>
+                <li class="list-group-item">参数:<input class="form-control" id="getStatsAsyncData" value='["test250", "test251"]' /></li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.getStatsAsync('从指定云存储检索当前玩家的统计数据')">测试</button>
+                </li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">getConnectedPlayersAsync: 提取 ConnectedPlayer对象的数组，这些对象包含与当前玩家关联的玩家的信息</li>
+                <li class="list-group-item">参数:无</li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-info center-block" onclick="player.getConnectedPlayersAsync('提取 ConnectedPlayer 对象的数组，这些对象包含与当前玩家关联的玩家的信息')">测试</button>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->
