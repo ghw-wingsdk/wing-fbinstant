@@ -5,12 +5,33 @@ $(function(){
     var config = {
         appId: 'testLogin',
         appKey: 'abc',
-        // appId: '04a2ec42679e11e8a9ed0211fa47f775',
-        // appKey: 'VM6Ks4oQE5HZcLuOClguvOzZVY1pGXcy',
         sdkType: 'fbinstant',
         platform: 'fbinstant',
         debug: true,
-        logSize: 200
+        logSize: 200,
+        success:function(data){
+            console.log("初始化success======")
+            util.showResult(wing.fbinstant.getPlayerID() + "初始化完成", JSON.stringify(data));
+
+            wing.fbinstant.payOnReady(function(){
+                console.log("支付环境可用");
+                demo.isPayOnReady = true;
+            });
+            console.log("wing.fbinstant.payOnReady called...");
+            
+            ad.preloadRewardedAds();
+            ad.preloadInterstitialAds();
+
+            wing.fbinstant.setLoadingProgress(10);
+            wing.fbinstant.setLoadingProgress(30);
+            wing.fbinstant.setLoadingProgress(70);
+            wing.fbinstant.setLoadingProgress(90);
+            wing.fbinstant.setLoadingProgress(100);
+
+
+
+            
+        }
     };
     wing.init(config);
 
@@ -18,37 +39,25 @@ $(function(){
     demo.preloadedInterstitial = null;
     demo.rewar_preload = false;
     demo.preloadedRewardedVideo = null;
+    demo.isPayOnReady = false;
 
     demo.canPurchase = false;
-    wing.fbinstant.initializeAsync({data:
-        "hellonicetomeetyou", success: function (data) {
-        util.showResult(wing.fbinstant.getPlayerID() + "初始化完成", JSON.stringify(data));
+    // wing.fbinstant.initializeAsync({data:
+    //     "hellonicetomeetyou", success: function (data) {
+        // util.showResult(wing.fbinstant.getPlayerID() + "初始化完成", JSON.stringify(data));
         
-        console.log("wing.fbinstant.payOnReady will be called...");
-        wing.fbinstant.payOnReady(function(){
-            console.log("支付环境可用");
-            demo.isPayOnReady = true;
-        });
-        console.log("wing.fbinstant.payOnReady called...");
+    //     console.log("wing.fbinstant.payOnReady will be called...");
+    //     wing.fbinstant.payOnReady(function(){
+    //         console.log("支付环境可用");
+    //         demo.isPayOnReady = true;
+    //     });
+    //     console.log("wing.fbinstant.payOnReady called...");
 
-        ad.preloadRewardedAds();
-        ad.preloadInterstitialAds();
-    }});
+    //     ad.preloadRewardedAds();
+    //     ad.preloadInterstitialAds();
+    // }});
 
-    wing.fbinstant.setLoadingProgress(10);
-    wing.fbinstant.setLoadingProgress(30);
-    wing.fbinstant.setLoadingProgress(70);
-    wing.fbinstant.setLoadingProgress(90);
-    wing.fbinstant.setLoadingProgress(100);
 
-    demo.isPayOnReady = false;
-    wing.fbinstant.startGameAsync({success: function() {
-        util.showResult("游戏初始化完毕准备开始游戏", "开始游戏");
-        wing.fbinstant.payOnReady(function(){
-            console.log("支付环境可用");
-            demo.isPayOnReady = true;
-        });
-    }});
 
     
 }),
@@ -157,3 +166,15 @@ $(function(){
     $("#bind_acct").load('./html/bind_acct.html');
 })
 /*****************************************bind account end*****************************************/
+
+/*****************************************bind tournament begin*****************************************/
+$(function(){
+    $("#tournament").load('./html/tournament.html');
+})
+/*****************************************bind tournament end*****************************************/
+
+/*****************************************bind predefinedEvent begin*****************************************/
+$(function () {
+    $("#predefinedEvent").load('./html/predefinedEvent.html');
+})
+/*****************************************bind predefinedEvent end*****************************************/

@@ -85,6 +85,7 @@ var payment = {
                         var elDataValue = thArray[i].getAttribute("data-field");
                         if(thDataType == "img"){
                             var imgEl = new Image();
+                            console.log('=====',prodList[j][elDataValue])
                             imgEl.src = prodList[j][elDataValue];
                             imgEl.height = 30;
                             imgEl.width = 30;
@@ -129,9 +130,13 @@ var payment = {
                         util.showResult("支付结果", "支付成功");
                     },
                     fail: function(result) {
-                        //处理失败结果
-                        util.showResult("支付结果", "支付失败");
-                    }
+						//处理失败结果
+							util.showResult("支付结果", "支付失败");  
+                    },
+					cancel:function(result){
+						//处理取消结果
+						util.showResult("支付结果", "支付取消");
+					}
                  }
             );
 
