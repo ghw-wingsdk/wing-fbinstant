@@ -4,13 +4,17 @@ var bindAcct = {
      */   
     bindAcctAggr: function(){
         wing.fbinstant.bind.binds({
-            success: function(result){
+            success: function(){
                 console.log("绑定成功");
                 util.showResult('绑定', '成功');
             },
-            fail: function(result){
+            fail: function(){
                 console.log("失败");
                 //util.showResult('绑定', '绑定失败');
+            },
+            complete: function(){
+                console.log("绑定");
+                //util.showResult('绑定', '绑定');
             }
         });
     },
@@ -20,13 +24,17 @@ var bindAcct = {
      */   
     bindAcct: function(){
         wing.fbinstant.bind.bindModal({
-            success: function(result){
-                console.log("绑定成功:"+JSON.stringify(result));
-                util.showResult('绑定成功', JSON.stringify(result));
+            success: function(){
+                console.log("绑定成功");
+                util.showResult('绑定', '绑定成功');
             },
-            fail: function(result){
-                console.log("绑定失败:"+JSON.stringify(result));
+            fail: function(){
+                console.log("绑定失败");
                 //util.showResult('绑定', '绑定失败');
+            },
+            complete: function(){
+                console.log("绑定");
+                //util.showResult('绑定', '绑定');
             }
         });
     },
@@ -36,13 +44,17 @@ var bindAcct = {
      */   
     unbindAcct: function(){
         wing.fbinstant.bind.unbindModal({
-            success: function(result){
-                console.log("解绑成功:"+JSON.stringify(result));
-                util.showResult('解绑成功', JSON.stringify(result));
+            success: function(){
+                console.log("解绑成功");
+                util.showResult('解绑', '解绑成功');
             },
-            fail: function(result){
-                console.log("解绑失败:"+JSON.stringify(result));
+            fail: function(){
+                console.log("解绑失败");
                 //util.showResult('解绑', '解绑失败');
+            },
+            complete: function(){
+                console.log("解绑");
+                //util.showResult('解绑', '解绑');
             }
         });
     },
@@ -52,13 +64,17 @@ var bindAcct = {
      */   
     switchAcct: function(){
         wing.fbinstant.bind.switchModal({
-            success: function(result){
-                console.log("切换成功:"+JSON.stringify(result));
-                util.showResult('切换成功:', JSON.stringify(result));
+            success: function(){
+                console.log("切换成功");
+                util.showResult('切换', '切换成功');
             },
-            fail: function(result){
+            fail: function(){
                 console.log("切换失败");
                 //util.showResult('切换', '切换失败');
+            },
+            complete: function(){
+                console.log("切换");
+                //util.showResult('切换', '切换');
             }
         });
     },
@@ -75,6 +91,10 @@ var bindAcct = {
             fail: function(){
                 console.log("切换失败");
                 //util.showResult('切换', '切换失败');
+            },
+            complete: function(){
+                console.log("切换");
+                //util.showResult('切换', '切换');
             }
         });
     }

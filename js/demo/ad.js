@@ -16,6 +16,7 @@ var ad = {
             success: function () {
                 demo.preload = true
             },
+            data: '2104357116455024_2106824926208243'
         })
     },
     
@@ -37,6 +38,7 @@ var ad = {
             success: function () {
                 demo.rewar_preload = true
             },
+            data: '2104357116455024_2106936459530423'
         })
     },
 
@@ -83,35 +85,7 @@ var ad = {
                 }
             });
         } else {
-            util.showResult("播放广告", "奖励视频广告未加载完毕无法播放!")
+            util.showResult("播放广告", "奖励视频广告未加载完毕无法播放！")
         }
-    },
-
-    showBannerAdAsync: function () {
-        var obj = {
-            success: function (result) {
-                util.showResult( "显示广告成功",JSON.stringify(result))
-            },
-            fail: function (result) {
-                //处理失败结果
-                util.showResult("播放广告", "banner广告未加载完毕无法播放")
-            }
-        };
-        wing.fbinstant.showBannerAdAsync(obj);
-
-    },
-
-    hideBannerAdAsync: function () {
-        var obj = {
-            success: function (result) {
-                util.showResult( "隐藏广告成功",JSON.stringify(result))
-            },
-            fail: function (result) {
-                //处理失败结果
-                util.showResult("隐藏广告", "banner广告未加载完毕无法隐藏")
-            }
-        };
-        wing.fbinstant.hideBannerAdAsync(obj);
-
     }
 }
