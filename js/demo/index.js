@@ -22,11 +22,7 @@ $(function(){
             ad.preloadRewardedAds();
             ad.preloadInterstitialAds();
 
-            wing.fbinstant.setLoadingProgress(10);
-            wing.fbinstant.setLoadingProgress(30);
-            wing.fbinstant.setLoadingProgress(70);
-            wing.fbinstant.setLoadingProgress(90);
-            wing.fbinstant.setLoadingProgress(100);
+
 
 
 
@@ -35,6 +31,12 @@ $(function(){
     };
     wing.init(config);
 
+    wing.fbinstant.setLoadingProgress(10);
+    wing.fbinstant.setLoadingProgress(30);
+    wing.fbinstant.setLoadingProgress(70);
+    wing.fbinstant.setLoadingProgress(90);
+    wing.fbinstant.setLoadingProgress(100);
+            
     demo.preload = false;
     demo.preloadedInterstitial = null;
     demo.rewar_preload = false;
