@@ -61,22 +61,7 @@ var player = {
             }
         )
     },
-    setStatsAsync: function(subject) {
-        var val = $("#setStatsAsyncData").val();
-        var value2 = JSON.parse(val);
-        wing.fbinstant.setStatsAsync({
-            data: value2,
-            complete: function (res) {
-                console.log(JSON.stringify(res));
-            },
-            success: function(res) {
-                util.showResult(subject, JSON.stringify(res))
-            },
-            fail: function (res) {
-                util.showResult(subject, JSON.stringify(res))
-            }
-        })
-    },
+
     flushDataAsync: function(subject) {
         wing.fbinstant.flushDataAsync({
             success: function(res) {
@@ -87,37 +72,7 @@ var player = {
             }
         })
     },
-    incrementStatsAsync: function(subject) {
-        var val = $("#incrementStatsAsyncData").val();
-        var value2 = JSON.parse(val);
-        wing.fbinstant.incrementStatsAsync({
-            data: value2,
-            complete: function (res) {
-                console.log(JSON.stringify(res));
-            },
-            success: function(res) {
-                util.showResult(subject, JSON.stringify(res))
-            },
-            fail: function (res) {
-                util.showResult(subject, JSON.stringify(res))
-            }
-        })
-    },
-    getStatsAsync: function(subject) {
-        var val = $("#getStatsAsyncData").val();
-        wing.fbinstant.getStatsAsync({
-            data: JSON.parse(val),
-            complete: function (res) {
-            console.log(JSON.stringify(res))
-            },
-            success: function(res) {
-                util.showResult(subject, JSON.stringify(res))
-            },
-            fail: function (res) {
-                util.showResult(subject, JSON.stringify(res))
-            }
-        })
-    },
+
     getConnectedPlayersAsync: function(subject) {
         wing.fbinstant.getConnectedPlayersAsync(
             {

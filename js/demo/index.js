@@ -3,8 +3,14 @@ var demo = {}
 $(function(){
     //初始化数据
     var config = {
-        appId: 'testLogin',
-        appKey: 'abc',
+        // 测试环境
+        // appId: 'testLogin',
+        // appKey: 'abc',
+
+        //生产环境
+        appId: '9910e8038a0e11ecb0e902c85f0429f5',
+        appKey: 'oHg7c7pWGpiLt1pmZRLekda5ZN8YTWJN',
+
         sdkType: 'fbinstant',
         platform: 'fbinstant',
         debug: true,
@@ -25,18 +31,19 @@ $(function(){
 
 
 
-
             
         }
     };
     wing.init(config);
 
+    
+    //设置游戏进度条
     wing.fbinstant.setLoadingProgress(10);
     wing.fbinstant.setLoadingProgress(30);
     wing.fbinstant.setLoadingProgress(70);
     wing.fbinstant.setLoadingProgress(90);
     wing.fbinstant.setLoadingProgress(100);
-            
+
     demo.preload = false;
     demo.preloadedInterstitial = null;
     demo.rewar_preload = false;

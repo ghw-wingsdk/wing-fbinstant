@@ -39,6 +39,21 @@ var leaderboard = {
 
                                 util.showResult("获取排行榜", "返回成功,结果数据:"+JSON.stringify(result)+"\n fbLeaderboardResult:"+fbLeaderboardResult);
                             });
+
+                            //获取前几名信息
+                            fbLeaderboard.getEntriesAsync(10,0).then(
+                                entries=>{
+                                    for (var i = 0; i < entries.length; i++) {
+                                        console.log(
+                                          entries[i].getRank() + '.________ ' +
+                                          entries[i].getPlayer().getName() + ': ' +
+                                          entries[i].getScore()
+                                        );
+                                      }
+                                    
+                                }
+                            );
+
                             // + "\n Leaderboard.getEntryCountAsync:"+fbLeaderboard.getEntryCountAsync()
                             // + "\n Leaderboard.getPlayerEntryAsync.getgetScore(当前玩家分数):"+fbLeaderboard.getPlayerEntryAsync().getScore()
                             // + "\n Leaderboard.getPlayerEntryAsync.getRank(当前玩家排行):"+fbLeaderboard.getPlayerEntryAsync().getRank()
