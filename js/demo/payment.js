@@ -1,10 +1,10 @@
 var payment = {
-    ////////////////////支付开始//////////////////////    
+    ////////////////////支付开始//////////////////////
     /*
      * 显示商品列表
      */
     showPayment: function(){
-        
+
         // this.renderProducts();
         // util.showModal("payment");
         if(demo.isPayOnReady){
@@ -43,6 +43,9 @@ var payment = {
         //         }]
         //     }
         // }
+
+        $("#payment_table >tbody").html(""); //先重置页面，否则会不断动态添加
+
         var that = this;
         wing.fbinstant.queryProducts(
             {
@@ -60,14 +63,11 @@ var payment = {
                 }
           }
        );
-
-        $("#payment_table >tbody").html(""); //先重置页面，否则会不断动态添加
-
     },
 
     doRenderProducts: function(productListData){
-        if(productListData 
-            && productListData.data 
+        if(productListData
+            && productListData.data
             && productListData.data.productList
             && productListData.data.productList.length > 0){
                 var prodList = productListData.data.productList;
@@ -80,7 +80,7 @@ var payment = {
                     for (var i = 0; i < thArray.length; i++) {
                         var tdEl = document.createElement("td");
                         tdEl.id = thArray[i].getAttribute("data-field")+"_"+j;
-                        
+
                         var thDataType = thArray[i].getAttribute("data-type");
                         var elDataValue = thArray[i].getAttribute("data-field");
                         if(thDataType == "img"){
@@ -108,7 +108,7 @@ var payment = {
                         }else{
                             tdEl.innerText = prodList[j][elDataValue];
                         }
-                        
+
                         trEl.appendChild(tdEl);
                     }
                     $("#payment_table >tbody").append(trEl);
@@ -131,7 +131,7 @@ var payment = {
                     },
                     fail: function(result) {
 						//处理失败结果
-							util.showResult("支付结果", "支付失败");  
+							util.showResult("支付结果", "支付失败");
                     },
 					cancel:function(result){
 						//处理取消结果
@@ -150,7 +150,7 @@ var payment = {
         //   }).catch(function(e) {
         //     console.log(e);
         //   });
-            
+
     }
     ////////////////////支付结束//////////////////////
 }

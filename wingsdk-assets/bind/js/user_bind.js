@@ -310,6 +310,11 @@ function copyKey() {
             a = 0;
             clearInterval(timer);
         }
+        if (a > 0) {
+            $('#cp_token_btn').attr('style','pointer-events:none')   // 添加不能点击样式
+        } else if (copySucc.style.opacity='0') {
+            $('#cp_token_btn').removeAttr('style','pointer-events:none')  // 移除不能点击样式
+        }
         copySucc.style.opacity = a;
     }, 50)
 }

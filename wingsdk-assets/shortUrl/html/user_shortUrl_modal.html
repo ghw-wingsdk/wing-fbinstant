@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><spring:message code="shortUrl.title"/></title>
+    <!--手机必须要添加的  -->
+    <!--meta name="apple-touch-fullscreen" content="YES"  针对苹果 -->
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta id="i18n_pagename" content="message">
+    <!--手机必须要添加的  结束-->
+    <link href="./../css/pop.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./../js/clipboard.min.js"></script>
+    <!-- <script type="text/javascript" src="./../js/user_shortUrl.js"></script> -->
+</head>
+<body>
+
+
+<!--弹窗蒙版-->
+<div class="pop_mask"></div>
+
+
+<!-- 短链弹窗 -->
+<div id="shortUrl_main" class="pop_main">
+    <img src="../img/pop_close.png" alt="" class="pop_close" id="pop_close">
+    <div class="pop_content">
+        <div class="short_url_context" id="short_url_context"></div>
+        <div class="short_url_container">
+            <div class="short_url" id="short_url"></div>
+            <span id="cp_copy_msg" class="cp_copy_msg" style="opacity: 0;">
+                Copied in clipboard!
+            </span>
+            <input type="button" id="btn_copy" class="btn_copy" data-clipboard-target="#short_url" value="Copy">
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    //字体大小
+    // JavaScript Document
+    ////////////////////
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+//        alert(document.getElementsByTagName('html')[0].style.fontSize)
+        recalc();
+    })(document, window);
+</script>
+<script type="text/javascript" src="./../js/user_shortUrl.js"></script>
+</body>
+</html>

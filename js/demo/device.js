@@ -2,6 +2,7 @@ var device = {
 
     clipboard: null,
     getDeviceInfo: function(){
+
         //显示对话框
         $('#device').modal('show');
 

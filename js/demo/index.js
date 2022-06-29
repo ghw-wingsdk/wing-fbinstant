@@ -24,25 +24,25 @@ $(function(){
                 demo.isPayOnReady = true;
             });
             console.log("wing.fbinstant.payOnReady called...");
-            
+
             ad.preloadRewardedAds();
             ad.preloadInterstitialAds();
 
-
-
-
-            
         }
     };
-    wing.init(config);
 
-    
-    //设置游戏进度条
-    wing.fbinstant.setLoadingProgress(10);
-    wing.fbinstant.setLoadingProgress(30);
-    wing.fbinstant.setLoadingProgress(70);
-    wing.fbinstant.setLoadingProgress(90);
-    wing.fbinstant.setLoadingProgress(100);
+    //模拟游戏进度条
+    var progress = 0;
+    var intervalProgress = setInterval(function () {
+        progress += 20
+        wing.fbinstant.setLoadingProgress(progress);
+        console.log('进度...'+progress)
+        if (progress === 100) {
+            clearInterval(intervalProgress);
+        }
+    }, 600);
+
+    wing.init(config);
 
     demo.preload = false;
     demo.preloadedInterstitial = null;
@@ -54,7 +54,7 @@ $(function(){
     // wing.fbinstant.initializeAsync({data:
     //     "hellonicetomeetyou", success: function (data) {
         // util.showResult(wing.fbinstant.getPlayerID() + "初始化完成", JSON.stringify(data));
-        
+
     //     console.log("wing.fbinstant.payOnReady will be called...");
     //     wing.fbinstant.payOnReady(function(){
     //         console.log("支付环境可用");
@@ -68,7 +68,7 @@ $(function(){
 
 
 
-    
+
 }),
 
 /**to be deleted */
@@ -176,14 +176,20 @@ $(function(){
 })
 /*****************************************bind account end*****************************************/
 
-/*****************************************bind tournament begin*****************************************/
+/*****************************************tournament begin*****************************************/
 $(function(){
     $("#tournament").load('./html/tournament.html');
 })
-/*****************************************bind tournament end*****************************************/
+/*****************************************tournament end*****************************************/
 
-/*****************************************bind predefinedEvent begin*****************************************/
+/*****************************************predefinedEvent begin*****************************************/
 $(function () {
     $("#predefinedEvent").load('./html/predefinedEvent.html');
 })
-/*****************************************bind predefinedEvent end*****************************************/
+/*****************************************predefinedEvent end*****************************************/
+
+/*****************************************shorturl begin*****************************************/
+$(function () {
+    $("#shorturl_ui").load('./html/shorturl_ui.html');
+})
+/*****************************************shorturl end*****************************************/

@@ -167,6 +167,11 @@ var common = {
         var level = $("#level").val();
         wing.fbinstant.setLevel(level);
         util.showResult(subject, "已执行")
+    },
+    setNickname: function(subject) {
+        var nickname = $("#nickname").val();
+        wing.fbinstant.setNickname(nickname);
+        util.showResult(subject, "已执行")
     }
     ////////////////////公共功能结束//////////////////////
 }
