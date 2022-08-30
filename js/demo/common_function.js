@@ -150,8 +150,18 @@ var common = {
         wing.fbinstant.inviteAsync(obj)
     },
 
-
-
+    // 游戏链接分享
+    shareLinkAsync: function(subject) {
+        var val = $("#shareLinkAsyncData").val();
+        var value2 = JSON.parse(val);
+        var obj = {
+            data: value2,
+            success: function () {
+                console.log(subject, "执行成功");
+            }
+        };
+        wing.fbinstant.shareLinkAsync(obj)
+    },
 
     setGameUserId: function(subject) {
         var gameUserId = $("#gameUserId").val();
